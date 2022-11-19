@@ -6,10 +6,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 // We will add callbacks here as we add features to our theme.
-
 function theme_bithio_get_main_scss_content($theme) {                                                                                
-    global $CFG;                                                                                                                    
-                                                                                                                                    
+    global $CFG;                                                                                                                                                                                                                                                  
     $scss = '';                                                                                                                     
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;                                                 
     $fs = get_file_storage();                                                                                                       
@@ -29,11 +27,11 @@ function theme_bithio_get_main_scss_content($theme) {
         // Safety fallback - maybe new installs etc.                                                                                
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');                                        
     }                                                                                                                                       
-            
-    // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.                                        
+         // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.                                        
     $pre = file_get_contents($CFG->dirroot . '/theme/bithio/scss/pre.scss');                                                         
     // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.                                    
-    $post = file_get_contents($CFG->dirroot . '/theme/bithio/scss/post.scss');  
+    $post = file_get_contents($CFG->dirroot . '/theme/bithio/scss/post.scss');                                                                                                                           
     // Combine them together.                                                                                                       
-    return $pre . "\n" . $scss . "\n" . $post;                                                                                                                  
+    return $pre . "\n" . $scss . "\n" . $post;     
+    return $scss;                                                                                                           
 }

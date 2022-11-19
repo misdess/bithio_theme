@@ -43,12 +43,14 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 // pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.            
 $THEME->requiredblocks = '';   
 
+// Points to the file theme/themename/scss/main.scss.
+$THEME->scss = 'theme/bithio/scss/post.scss';
+
+//added later
+$THEME->haseditswitch = true;
 // This is a feature that tells the blocks library not to use the "Add a block" block. We don't want this in boost based themes because
 // it forces a block region into the page when editing is enabled and it takes up too much room.
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
-
-
-
 // This is the function that returns the SCSS source for the main file in our theme. We override the boost version because          
 // we want to allow presets uploaded to our own theme file area to be selected in the preset list.                                  
 $THEME->scss = function($theme) {                                                                                                   

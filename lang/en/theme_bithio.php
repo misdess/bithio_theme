@@ -2,21 +2,19 @@
 // Every file should have GPL and copyright in the header - we skip it in tutorials but you should not skip it for real.
 
 // This line protects the file from being accessed by a URL directly.                                                               
-defined('MOODLE_INTERNAL') || die();                                                                                                
-                                                                                                                                    
+defined('MOODLE_INTERNAL') || die();                                                                                                                                                                                                                             
 // A description shown in the admin theme selector.                                                                                 
 $string['choosereadme'] = 'Theme bithio is a child theme of Boost. It adds the ability to upload background photos.';                
 // The name of our plugin.                                                                                                          
 $string['pluginname'] = 'bithio';                                                                                                    
 // We need to include a lang string for each block region.                                                                          
 $string['region-side-pre'] = 'Right';
-
 // The name of the second tab in the theme settings.                                                                                
 $string['advancedsettings'] = 'Advanced settings';                                                                                  
 // The brand colour setting.                                                                                                        
 $string['brandcolor'] = 'Brand colour';                                                                                             
 // The brand colour setting description.                                                                                            
-$string['brandcolor_desc'] = 'The accent colour.';                   
+$string['brandcolor_desc'] = 'The accent colour.';     
 // Name of the settings pages.                                                                                                      
 $string['configtitle'] = 'bithio settings';                                                                                          
 // Name of the first settings tab.                                                                                                  
@@ -35,5 +33,15 @@ $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';       
 // Raw initial SCSS setting.                                                                                                        
 $string['rawscsspre'] = 'Raw initial SCSS';                                                                                         
-// Raw initial SCSS setting help text.                                                                                              
+// Raw initial SCSS setting help text.  
+// codes below are added later                                                                                            
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+$string['unaddableblocks'] = 'Unneeded blocks';
+$string['unaddableblocks_desc'] = 'The blocks specified are not needed when using this theme and will not be listed in the \'Add a block\' menu.';
+$string['backgroundimage'] = 'background image';
+$string['backgroundimage_desc'] = 'background image desc';
+$string['loginbackgroundimage'] = 'loginbackground image';
+$string['loginbackgroundimage_desc'] = 'loginbackground image_desc';
+//$string['region-side-post'] = 'Right';
+//$string['region-side-pre'] = 'Left';
+

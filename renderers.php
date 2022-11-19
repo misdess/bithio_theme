@@ -77,28 +77,28 @@ require_once($CFG->dirroot .'/theme/bithio/files/footer.html');
         //the cod below is for the footer on the site
         $output .= html_writer::start_div('Box');
         $output .= html_writer::start_div('style="padding-left:18px;"Box1</h6>');
-        $output .= html_writer::div('<h6><br>About Us</h6>');
+        $output .= html_writer::div('<h6><br>About Us</h6>','f1bh');
         $output .= html_writer::div('Bithio ICT Systems PLC','f1');
         $output .= html_writer::div('Addis Ababa, Ethiopia','f1');
-        $output .= html_writer::div('<a style="text-decoration: none;" href="https://www.bithio.com">www.bithio.com</a>','f1');
+        $output .= html_writer::div('<a style="text-decoration: none;" href="http://localhost/moodle/my/courses.php">www.bithio.com</a>','f1');
         $output .= html_writer::end_div('Box1');
 
         $output .= html_writer::start_div('style="padding-left:18px;"Box2');
-        $output .= html_writer::div('<h6><br>Products And Services</h6>');
+        $output .= html_writer::div('<h6><br>Products And Services</h6>','f1bh');
         $output .= html_writer::div('eLearning systems','f1');
         $output .= html_writer::div('Products and Services','f1');
         $output .= html_writer::div('Digital library','f1');
         $output .= html_writer::end_div('Box2');
 
         $output .= html_writer::start_div('style="padding-right:28px;"Box3');
-        $output .= html_writer::div('<h6><br>Contact Us</h6>');
+        $output .= html_writer::div('<h6><br>Contact Us</h6>','f1bh');
         $output .= html_writer::div('Ethio ICT Park','f1');
         $output .= html_writer::div('Bole Sub City, Woreda 11','f1');
-        $output .= html_writer::div('Email: info@bithio.com','f1');
+        $output .= html_writer::div('<a style="text-decoration: none;" href="#">Email: info@bithio.com</a>','f1');
         $output .= html_writer::end_div('Box3');
 
         $output .= html_writer::start_div('style="padding-right:28px;"Box4');
-        $output .= html_writer::div('<h6><br>Follow Us</h6>');
+        $output .= html_writer::div('<h6><br>Follow Us</h6>','f1bh');
         $output .= html_writer::div('<h6><a style="text-decoration:none;" href="#" class="fa fa-facebook"></a></h6>','f1');
         $output .= html_writer::div('<h6><a style="text-decoration:none;" href="#" class="fa fa-twitter"></a></h6>','f1');
         $output .= html_writer::div('<h6><a style="text-decoration:none;" href="#" class="fa fa-instagram"></a></h6>','f1');
@@ -111,7 +111,7 @@ require_once($CFG->dirroot .'/theme/bithio/files/footer.html');
         $output .= html_writer::end_div('bottom');
         $output .= html_writer::start_div('ccopy');
         $output .= html_writer::div( '<br>©2021 Bithio ICT Systems. All Rights Reserved','f1');
-        $output .= html_writer::div('<br><a style="text-decoration: none;" href="https://www.bithio.com/admin/tool/policy/viewall.php?returnurl=https%3A%2F%2Fwww.bithio.com%2F">plocies</a>','f1');
+        $output .= html_writer::div('<br><a style="text-decoration: none;" href="https://www.bithio.com/admin/tool/policy/viewall.php?returnurl=https%3A%2F%2Fwww.bithio.com%2F">policies</a>','f1');
        // html_writer::div(include($CFG->dirroot .'/theme/bithio/files/footer.html'));
         //include($CFG->dirroot .'/theme/bithio/files/footer.html');
         $output .= html_writer::end_div('<br>ccopy');
@@ -204,8 +204,111 @@ class theme_bithio_core_course_renderer extends core_course_renderer{
             }
             $content .= html_writer::end_tag('ul');
         }
-/*$content .=html_writer::div('<strong >$15.00</strong> or <strong >900.00</strong> birr');//this is a new line added now.*/
+//$content .=html_writer::div('<strong >$15.00</strong> or <strong >900.00</strong> birr');//this is a new line added now.
         return $content;
+    }
+    //the code below is for the front page above the list of available courses.
+    public function frontpage_section1() {
+        global $SITE, $USER;
+
+        $output = '';
+        $editing = $this->page->user_is_editing();
+
+        if ($editing) {
+            // Make sure section with number 1 exists.
+            course_create_sections_if_missing($SITE, 1);
+        }
+
+        $modinfo = get_fast_modinfo($SITE);
+        $section = $modinfo->get_section_info(1);
+
+
+        if (($section && (!empty($modinfo->sections[1]) or !empty($section->summary))) or $editing) {
+
+            $format = course_get_format($SITE);
+            $frontpageclass = $format->get_output_classname('content\\frontpagesection');
+            $frontpagesection = new $frontpageclass($format, $section);
+
+            // The course outputs works with format renderers, not with course renderers.
+            $renderer = $format->get_renderer($this->page);
+            $output .= $renderer->render($frontpagesection);
+        }
+        //the code below is an image for the front page in the first block
+        $output .= html_writer::start_div('frontblock');
+        $output .= html_writer::start_div('style="padding-left:1px;"frontblock1</h6>');
+       // $output .= html_writer::div('<h6><br>About Us</h6>');
+        //$output .= html_writer::div('Bithio ICT Systems PLC<br><img src="theme/bithio/pix/courseimages/marketing1.png">','frontblock1');
+        $output .= html_writer::span('<img src="theme/bithio/pix/pages/frontpage.png" alt="An image is lost.">','marketingb1');
+       // $output .= html_writer::div('Addis Ababa, Ethiopia','f1');
+       // $output .= html_writer::div('<a style="text-decoration: none;" href="http://localhost/moodle/my/courses.php">www.bithio.com</a>','f1');
+        $output .= html_writer::end_div('frontblock1');
+        $output .=html_writer::end_div('frontblock');
+        $output.='<br><br>';
+
+        //The next blocks are for others
+        $output .= html_writer::start_div('frontblocksecond');
+        $output .= html_writer::start_div('style="padding-left:18px;"frontblock2</h6>');
+        //$output .= html_writer::div('<h6><center><br>About Us</h6>','a1');
+        $output .= html_writer::div('<h4><center><br>Are you a school?</h4><img src="theme/bithio/pix/pages/school.png"><center>Save cost of paperwork and improve your student <br>learning outcome through the power of technology<br><br>','a1');
+        //$output .= html_writer::div('<h4><center><br>Are you a school?</h4><img src="theme/bithio/pix/courseimages/block1.png"><button class="blocks"><a href="http://localhost/moodle/login/signup.php">click-here<br></a></button><br><br><center>Save cost of paperwork and improve your student <br>learning outcome through the power of technology<br><br>','a1');
+        $output .= html_writer::end_div('frontblock2');
+
+        $output .= html_writer::start_div('style="padding-left:18px;"frontblock3');
+       // $output .= html_writer::div('<h6><center><br>Products And Services</h6>','a1');
+        $output .= html_writer::div('<h4><center><br>Are you a teacher?</h4><img src="theme/bithio/pix/pages/teacher.png"><center>Get trained on educational technologies and<br> engage your students better.<br><br>','a1');
+        $output .= html_writer::end_div('frontblock3');
+        
+        $output .= html_writer::start_div('style="padding-left:18px;"frontblock4');
+       // $output .= html_writer::div('<h6><center><br>For Further Information</h6>','a1');
+        $output .= html_writer::div('<h4><center><br>Are you a student?</h4><img src="theme/bithio/pix/pages/student.png"><span style="opacity:1;"><center>Access your classroom online and <br>make your learning fun and rewarding.<br><br></span>','a1');
+        $output .= html_writer::end_div('frontblock4');
+        $output .= html_writer::end_div('frontblocksecond');
+        $output.='<br><br>';
+
+        //The next blocks are others.
+       // $output .= html_writer::start_div('Box');
+        $output .= html_writer::start_div('p1');
+        $output .= html_writer::start_div('p1_inner1');
+        $output .= html_writer::div('<h1><center><br><br>Every one needs to equip the 21st century digital skills,<br>regardless of the time when and where they are.<br><br><br></h1>','p1');
+        
+
+
+        //the code below is for a text on an image
+        $output .= html_writer::start_div('marketingb1');
+        $output .= html_writer::div('<br>','gap3');
+       // $output .= html_writer::div('<img src="theme/bithio/pix/pages/frontpage.png" alt="An image is lost.">','marketingb1');
+        //$output .= html_writer::div('<h3>Online Learning Center</h3><p>Learn with bithio online Learning</p>','marketingb1');
+        $output .= html_writer::end_div('marketingb1');
+        //the two lines below are the closing of the the second block from the above
+        $output .= html_writer::end_div('p1_inner1');
+        $output .= html_writer::end_div('p1');
+        //require_once($CFG->dirroot .'/theme/bithio/layout/on_image_text.html');
+
+
+        return $output;
+    }
+}
+//the code below id the 'custom_menu' class
+class theme_bithio_core_renderers extends core_renderer {
+
+    protected function render_custom_menu(custom_menu $menu) {
+        // Our code will go here shortly
+        $mycourses = $this->page->navigation->get('mycourses');
+
+if (isloggedin() && $mycourses && $mycourses->has_children()) {
+    $branchlabel = get_string('mycourses');
+    $branchurl   = new moodle_url('/course/index.php');
+    $branchtitle = $branchlabel;
+    $branchsort  = 10000;
+
+    $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+
+    foreach ($mycourses->children as $coursenode) {
+        $branch->add($coursenode->get_content(), $coursenode->action, $coursenode->get_title());
+    }
+}
+
+return parent::render_custom_menu($menu);
     }
 
 }

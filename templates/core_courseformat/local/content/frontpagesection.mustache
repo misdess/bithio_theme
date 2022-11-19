@@ -1,0 +1,120 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_courseformat/local/course_format/frontpagesection
+
+    Displays the frontpage section 1 (site home).
+
+    Example context (json):
+    {
+        "sections": [
+            "<li>This is the section content</li>"
+        ],
+        "showsettings": true,
+        "settingsurl": "#"
+    }
+}}
+<div class="course-content">
+    {{#showsettings}}
+    <div class="mb-2">
+        <a href="{{{settingsurl}}}" title="{{#str}} editsummary {{/str}}" aria-label="{{#str}} editsummary {{/str}}">
+            {{#pix}} t/edit, moodle {{/pix}}
+        </a>
+    </div>
+    {{/showsettings}}
+    <div class="sitetopic">
+        <ul class="topics frontpage">
+            {{#sections}}
+                {{> core_courseformat/local/content/section }}
+            {{/sections}}
+        </ul>
+   {{! </div><p>This is overriden fromt the frontpagesection on the template</p>
+    <img src="theme/bithio/pix/courseimages/java.png">}}
+</div>
+{{! <!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Text Hover Overlay</title>
+        <!--<link rel="shortcut icon" href="/decode/assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="./src/main.css">-->
+        <style>
+            .image{
+                position: relative;
+                width: 400px;
+            }
+            .image__img{
+                display:block; 
+                width: 100%;
+            }
+            .image__overlay{
+                position:absolute;
+                top: 0; 
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background:rgba(0, 0, 0, 0.6) ;
+                color: #ffffff;
+                font-family:'Quicksand', sans-serif ;
+                display:flex ;
+                flex-direction: column;
+                align-items: center; 
+                justify-content: center;
+                opacity: 0; 
+                transition: opacity 0.25s;
+            }
+            
+            .image__overlay--blur{
+                backdrop-filter: blur(5px );
+            }
+            .image__overlay--primary{
+                background:#02f573;
+            }
+            .image__overlay > *{
+                transform: translateY(20px);  
+                transition: transform 0.25s;
+            }
+            .image__overlay:hover{
+                opacity: 1;
+            }
+            .image__overlay:hover > *{
+                transform: translateY(0);
+            }
+            .image__title{
+                font-size: 2em;
+                font-weight: bold; 
+            }
+            .image__description{
+                 font-size: 1.25em;
+                 margin-top: .25em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image">
+            <img class="image__img" src="theme/bithio/pix/courseimages/block1.png" alt="couirse block">
+            <div class="image__overlay image__overlay--blur image__overlay--primary">
+                <div class="image__title"> Course 1</div>
+                <p class="image__description">
+                    This is a course page.
+                </p>
+
+            </div>
+        </div>
+    </body>
+</html>}}
