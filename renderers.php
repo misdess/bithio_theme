@@ -243,7 +243,7 @@ class theme_bithio_core_course_renderer extends core_course_renderer{
        // $output .= html_writer::div('<a style="text-decoration: none;" href="http://localhost/moodle/my/courses.php">www.bithio.com</a>','f1');
         $output .= html_writer::end_div('frontblock1');
         $output .=html_writer::end_div('frontblock');
-        $output.='<br><br>';
+        $output.='<br><br>';//this line makes a gap between the blocks
 
         //The next blocks are for others
         $output .= html_writer::start_div('frontblocksecond');
@@ -252,16 +252,19 @@ class theme_bithio_core_course_renderer extends core_course_renderer{
         $output .= html_writer::div('<h4><center><br>Are you a school?</h4><img src="theme/bithio/pix/pages/school.png"><center>Save cost of paperwork and improve your student <br>learning outcome through the power of technology<br><br>','a1');
         //$output .= html_writer::div('<h4><center><br>Are you a school?</h4><img src="theme/bithio/pix/courseimages/block1.png"><button class="blocks"><a href="http://localhost/moodle/login/signup.php">click-here<br></a></button><br><br><center>Save cost of paperwork and improve your student <br>learning outcome through the power of technology<br><br>','a1');
         $output .= html_writer::end_div('frontblock2');
-
+        $output.='<br><br>';//this line makes a gap between the blocks
+        
         $output .= html_writer::start_div('style="padding-left:18px;"frontblock3');
        // $output .= html_writer::div('<h6><center><br>Products And Services</h6>','a1');
         $output .= html_writer::div('<h4><center><br>Are you a teacher?</h4><img src="theme/bithio/pix/pages/teacher.png"><center>Get trained on educational technologies and<br> engage your students better.<br><br>','a1');
         $output .= html_writer::end_div('frontblock3');
-        
+        $output.='<br><br>';//this line makes a gap between the blocks
+
         $output .= html_writer::start_div('style="padding-left:18px;"frontblock4');
        // $output .= html_writer::div('<h6><center><br>For Further Information</h6>','a1');
-        $output .= html_writer::div('<h4><center><br>Are you a student?</h4><img src="theme/bithio/pix/pages/student.png"><span style="opacity:1;"><center>Access your classroom online and <br>make your learning fun and rewarding.<br><br></span>','a1');
+        $output .= html_writer::div('<h4><center><br>Are you a student?</h4><img src="theme/bithio/pix/pages/student.png"><center>Access your classroom online and <br>make your learning fun and rewarding.<br><br>','a1');
         $output .= html_writer::end_div('frontblock4');
+        $output.='<br><br>';
         $output .= html_writer::end_div('frontblocksecond');
         $output.='<br><br>';
 

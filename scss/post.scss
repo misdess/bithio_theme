@@ -125,44 +125,21 @@ height: 75px;color:white;}
     flex-flow: row wrap;
     margin-right: 0rem;
     margin-left: 0rem;
-
-       /* max-width: 100%;
-        display: flex;
-    flex-flow: row wrap;
-        /*position: absolute;
-        flex: 1 0 0%;
-        margin-right: 0.25rem;
-        margin-bottom: 0;
-        margin-left: 0.25rem;
-        //display:flex;
-        //justify-content: auto;
-       // display: inline-flexbox;
-       //padding: 5px;*/
     }
     #frontpage-available-course-list .coursebox, #frontpage-course-list .coursebox, .course-search-result .coursebox {
         @media (min-width: 576px){
             //this is to show 3 courses per line.
             margin: .5rem 0 0 .5rem;
-            width: calc(25% - 0.5rem);
+           // width: calc(25% - 0.5rem);
             height: calc(25% - 0.5rem);
-           // box-shadow: 2px 2px 2px 2px rgb(0, 0, 0,0.1);//this is to make a shadow on every course.
-           //background-color: #c5cfd3;//this is put background color on every course.
-            //the code below is to make two courses only.
-           /* width: calc(50% - 0.5rem);
-            height: calc(50% - 0.5rem);*/
         }}
-        
-//the code below is for individual course contents dimension
-/*.section .activity {
-    float:left;margin: 5px;
-    width: calc(30%);
-    height: calc(30%);
- }*/
-       
+           
 // All the codes below are for the footer
+@media(min-width:576px){//this makes the footer to size this much when being narrowed.
 #page-wrapper #page-footer {
    //this code id the best player fo the footer(the width and max-width are neccessary)
     float:left;
+    height: auto;
     width:109%;
     margin-left:-5%;
     margin-right:-5%;   
@@ -170,7 +147,7 @@ height: 75px;color:white;}
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-}
+}}
 //the codes below are for the course navigation menu
 .secondary-navigation .navigation {
     font-size: 1.4rem;}
@@ -252,17 +229,20 @@ justify-content:space-around;
 h2{padding-left: 30px;}
 
 .frontblocksecond{
-   // background-color: #01abee;
+   @media(min-width:400px){//this make the three marketing blocks to be small and resizable on the front page
     display: flex;
+    margin-top: 0;
     justify-content:space-around;
-    
+    width: 100%;
+    height: auto;
     //justify-items: auto;
     //box-shadow: 2px 2px 2px 2px rgb(0, 0, 0,0.1);
-    }
-   /* .frontblock2{
-        background-color: #FF6F61;
-        box-shadow: 2px 2px 2px 2px rgb(0, 0, 0,0.15);
-    }*/
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: 0rem;
+    margin-left: 0rem;
+    }}
+   
     .gap3{
        // background-color: #000;
     }
@@ -301,50 +281,43 @@ h2{padding-left: 30px;}
         text-decoration: none;
         color:#fff;
     }
+   // @media(min-width:484px){
     .a1{
+        @media(min-width:400px){
         //This code is for the front blocks on the site
-        background-color: #01abee;
+       background-color: #01abee;
         opacity: 0.65;
         transform: translateY(0px);
-       // box-shadow: 10px 10px 8px #888888;
-       // border-width: 1px 0;  
-        transition: transform 0.25s
-    }
-    .a1 {
         margin-left: 0;
         justify-content: center;
         background-color: #01abee;
         justify-items: center;
-        color: #fff;
-    }
+        color: #fff; 
+        margin-bottom: 15px;
+        transition: transform 0.25s
+    }}
     .a1 h4 {
         color: #FF4500;
     }
-    /*.a1{
-        margin-left: 0;
-       // padding-left: 20px;
-        justify-content: center;
-        background-color: #01abee;
-        justify-items: center;
-        box-shadow: 2px 2px 2px 2px rgb(0, 0, 0,0.20);
-    } */
-    
     //the code below is for the front page to have no padding by the right side
+   @media(min-width:484px){//this query makes responsive to "page" id and the class "drawers".
     #page.drawers {
         //padding-left: 0;
        padding-right: 0;
-    }
+    }}
+   @media(min-width:576px){//this query makes the whole front page responsive.
     #page-wrapper #page.drawers .main-inner {
         //this code id the best player for the front page to be full page(the width and max-width are neccessary)
          float:left;
+         height: auto;
          width:109%;
          margin-left:-6%;
-        margin-right:-5%;   
+         margin-right:-5%;   
          max-width: 109%;
          flex-shrink: 0;
          display: flex;
        flex-direction: column;
-     }
+     }}
      .list-unstyled {
         //this code is for course report
         padding-left: 30px;
@@ -392,42 +365,24 @@ h2{padding-left: 30px;}
     .blocks:a{
         text-decoration: none;
     }
-    /*.dashboard-card-deck:not(.fixed-width-cards) .dashboard-card-deck{
-        @media (min-width: 576px){
-            //this is to show 3 courses per line.
-            margin: .5rem 0 0 .5rem;
-            width: calc(25% - 0.5rem);
-            height: calc(25% - 0.5rem);
-        }
-    }*/
+    
     @media (min-width: 840px){
 .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
     width: calc(25% - 0.5rem);
 }}
 //the code below inclosed by "<style> is for the first block of the front page.
 //<style>
-.marketingb1 img{
- // max-width: 100%;
-  height: auto;
-}
+@media(min-width:480px){
+    .marketingb1 img{
+     max-width: 100%;
+      height: auto;
+    }
+    }
 
-.block1-text{
-   position: absolute;
-   top: 45%;
-   color: #fff;
-   padding-left: 10px;
-   align-items: center;
- }
-.block1-text h3{
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 5px;
-   }
-.block1-text p{
-    font-size: 18px;
-    //text-transform: uppercase;
-    font-weight: italic;
-    // margin-bottom: 5px;
- }
-     // </style>
+    @media (max-width: 767.98px){
+    #page-wrapper {
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}}

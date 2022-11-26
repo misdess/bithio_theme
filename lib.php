@@ -33,5 +33,5 @@ function theme_bithio_get_main_scss_content($theme) {
     $post = file_get_contents($CFG->dirroot . '/theme/bithio/scss/post.scss');                                                                                                                           
     // Combine them together.                                                                                                       
     return $pre . "\n" . $scss . "\n" . $post;     
-    return $scss;                                                                                                           
+    //return $scss;                                                                                                           
 }
