@@ -272,7 +272,7 @@ class theme_bithio_core_course_renderer extends core_course_renderer{
        // $output .= html_writer::start_div('Box');
         $output .= html_writer::start_div('p1');
         $output .= html_writer::start_div('p1_inner1');
-        $output .= html_writer::div('<h1><center><br><br>Every one needs to equip the 21st century digital skills,<br>regardless of the time when and where they are.<br><br><br></h1>','p1');
+        $output .= html_writer::div('<h1><center><br><br>Every one needs to equip the <i>21<sup>st</sup></i> century digital skills,<br>regardless of the time when and where they are.<br><br><br></h1>','p1');
         
 
 
